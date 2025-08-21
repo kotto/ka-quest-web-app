@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KA Quest - Décrypte les Hiéroglyphes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Noto+Sans+Egyptian+Hieroglyphs&display=swap" rel="stylesheet">
+    <style>
+        .hieroglyph {
+            font-family: 'Noto Sans Egyptian Hieroglyphs', sans-serif;
+        }
+        .cinzel-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px #E9C46A, 0 0 40px #E9C46A;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            min-height: 100vh;
+        }
+        .lang-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .lang-btn {
+            background: rgba(255, 215, 10, 0.1);
+            border: 1px solid #E9C46A;
+            color: #E9C46A;
+            padding: 5px 10px;
+            margin: 2px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover, .lang-btn.active {
+            background: #E9C46A;
+            color: #1a1a1a;
+        }
+        .content-fr { display: block; }
+        .content-en { display: none; }
+        .content-es { display: none; }
+        .content-de { display: none; }
+    </style>
+</head>
+<body class="text-yellow-100">
+    <!-- Header -->
+    <header class="bg-yellow-900 bg-opacity-50 py-6 px-4 shadow-lg relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="hieroglyph text-4xl mr-3 text-yellow-400">𓂓</span>
+                <h1 class="cinzel-title text-3xl font-bold text-yellow-300">KA Quest</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="text-yellow-200 hover:text-yellow-400">Accueil</a>
+                <a href="#game" class="text-yellow-200 hover:text-yellow-400">Jeu</a>
+                <a href="#premium" class="text-yellow-200 hover:text-yellow-400">Premium</a>
+            </nav>
+        </div>
+
+        <!-- Language Selector -->
+        <div class="lang-selector">
+            <button class="lang-btn active" onclick="setLanguage('fr')">🇫🇷 FR</button>
+            <button class="lang-btn" onclick="setLanguage('en')">🇺🇸 EN</button>
+            <button class="lang-btn" onclick="setLanguage('es')">🇪🇸 ES</button>
+            <button class="lang-btn" onclick="setLanguage('de')">🇩🇪 DE</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 px-4">
+        <div class="container mx-auto text-center">
+            <h2 class="cinzel-title text-5xl font-bold text-yellow-300 mb-6 neon-glow">
+                <span class="content-fr">Décrypte les Hiéroglyphes avec la Méthode KA</span>
+                <span class="content-en">Decode Hieroglyphs with the KA Method</span>
+                <span class="content-es">Descifra Jeroglíficos con el Método KA</span>
+                <span class="content-de">Entschlüsseln Sie Hieroglyphen mit der KA-Methode</span>
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                <span class="content-fr">Plonge dans l'aventure de l'Égypte ancienne ! Apprends les hiéroglyphes, résous des puzzles captivants et découvre les secrets des pharaons.</span>
+                <span class="content-en">Dive into the adventure of ancient Egypt! Learn hieroglyphs, solve captivating puzzles and discover the secrets of the pharaohs.</span>
+                <span class="content-es">¡Sumérgete en la aventura del antiguo Egipto! Aprende jeroglíficos, resuelve rompecabezas cautivadores y descubre los secretos de los faraones.</span>
+                <span class="content-de">Tauche ein in das Abenteuer des alten Ägypten! Lerne Hieroglyphen, löse fesselnde Rätsel und entdecke die Geheimnisse der Pharaonen.</span>
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-yellow-800 hover:bg-yellow-700 text-yellow-100 py-3 px-8 rounded-lg font-bold text-lg transition-all duration-200">
+                    <i class="fas fa-play mr-2"></i>
+                    <span class="content-fr">Commencer l'Aventure</span>
+                    <span class="content-en">Start Adventure</span>
+                    <span class="content-es">Comenzar Aventura</span>
+                    <span class="content-de">Abenteuer Beginnen</span>
+                </button>
+                <button class="bg-transparent border-2 border-yellow-600 hover:bg-yellow-600 text-yellow-200 py-3 px-8 rounded-lg font-bold text-lg transition-all duration-200">
+                    <i class="fas fa-eye mr-2"></i>
+                    <span class="content-fr">Voir la Démo</span>
+                    <span class="content-en">View Demo</span>
+                    <span class="content-es">Ver Demo</span>
+                    <span class="content-de">Demo Ansehen</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Section -->
+    <section id="game" class="py-20 px-4 bg-gray-900 bg-opacity-30">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-yellow-300 mb-12 text-center">
+                Expérience de Jeu Unique
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Puzzle 3D -->
+                <div class="bg-yellow-900 bg-opacity-50 p-6 rounded-xl border border-yellow-700">
+                    <div class="text-4xl text-yellow-400 mb-4 text-center">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-yellow-200 mb-4">Pyramides 3D</h3>
+                    <p class="text-gray-300 mb-4">
+                        Explore des pyramides virtuelles et découvre des hiéroglyphes cachés
+                        dans un environnement 3D immersif.
+                    </p>
+                    <div class="bg-yellow-800 bg-opacity-50 p-4 rounded-lg">
+                        <p class="text-yellow-300 text-sm">
+                            <i class="fas fa-star mr-2"></i>Navigation intuitive
+                        </p>
+                        <p class="text-yellow-300 text-sm mt-2">
+                            <i class="fas fa-star mr-2"></i>Animations fluides
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Traduction KA -->
+                <div class="bg-yellow-900 bg-opacity-50 p-6 rounded-xl border border-yellow-700">
+                    <div class="text-4xl text-yellow-400 mb-4 text-center">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-yellow-200 mb-4">Méthode KA</h3>
+                    <p class="text-gray-300 mb-4">
+                        Utilise l'intelligence artificielle pour traduire les hiéroglyphes
+                        selon la méthode KA révolutionnaire.
+                    </p>
+                    <div class="bg-yellow-800 bg-opacity-50 p-4 rounded-lg">
+                        <p class="text-yellow-300 text-sm">
+                            <i class="fas fa-brain mr-2"></i>IA avancée
+                        </p>
+                        <p class="text-yellow-300 text-sm mt-2">
+                            <i class="fas fa-clock mr-2"></i>Traduction instantanée
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Scan Premium -->
+                <div class="bg-yellow-900 bg-opacity-50 p-6 rounded-xl border border-yellow-700 relative">
+                    <div class="absolute top-2 right-2 bg-yellow-600 text-yellow-200 px-2 py-1 rounded text-xs font-bold">
+                        PREMIUM
+                    </div>
+                    <div class="text-4xl text-yellow-400 mb-4 text-center">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-yellow-200 mb-4">Scan Réel</h3>
+                    <p class="text-gray-300 mb-4">
+                        Scanne de vrais hiéroglyphes avec ton appareil photo
+                        et découvre leur signification en temps réel.
+                    </p>
+                    <div class="bg-yellow-800 bg-opacity-50 p-4 rounded-lg">
+                        <p class="text-yellow-300 text-sm">
+                            <i class="fas fa-mobile-alt mr-2"></i>Appareil photo
+                        </p>
+                        <p class="text-yellow-300 text-sm mt-2">
+                            <i class="fas fa-magic mr-2"></i>Détection IA
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Game Section -->
+    <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-bold text-yellow-300 mb-12 text-center">
+                Essaie le Jeu !
+            </h2>
+
+            <div class="max-w-4xl mx-auto bg-yellow-900 bg-opacity-50 rounded-xl border border-yellow-700 p-8">
+                <!-- Demo Game Area -->
+                <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                    <div class="text-center mb-6">
+                        <span class="hieroglyph text-6xl text-yellow-400">𓂓</span>
+                        <p class="text-gray-300 mt-2">Hiéroglyphe à traduire</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <button class="bg-yellow-800 hover:bg-yellow-700 text-yellow-200 py-3 px-4 rounded-lg transition-colors">
+                            Force vitale
+                        </button>
+                        <button class="bg-yellow-800 hover:bg-yellow-700 text-yellow-200 py-3 px-4 rounded-lg transition-colors">
+                            Pouvoir sacré
+                        </button>
+                        <button class="bg-yellow-800 hover:bg-yellow-700 text-yellow-200 py-3 px-4 rounded-lg transition-colors">
+                            Énergie divine
+                        </button>
+                        <button class="bg-yellow-800 hover:bg-yellow-700 text-yellow-200 py-3 px-4 rounded-lg transition-colors">
+                            Âme immortelle
+                        </button>
+                    </div>
+
+                    <div class="text-center">
+                        <button class="bg-green-700 hover:bg-green-600 text-white py-3 px-8 rounded-lg font-bold">
+                            <i class="fas fa-check mr-2"></i>Valider Réponse
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-center text-gray-300">
+                    <p class="mb-4">Cette démo présente un puzzle de traduction KA typique.</p>
+                    <p class="text-sm">Télécharge l'app pour accéder à tous les niveaux et fonctionnalités !</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Section -->
+    <section id="premium" class="py-20 px-4 bg-gray-900 bg-opacity-30">
+        <div class="container mx-auto text-center">
+            <h2 className="text-4xl font-bold text-yellow-300 mb-12">
+                Devient Premium
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Free -->
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-600">
+                    <h3 class="text-2xl font-bold text-white mb-4">Gratuit</h3>
+                    <p class="text-4xl font-bold text-white mb-6">0€</p>
+                    <ul class="text-gray-300 text-left mb-6 space-y-2">
+                        <li><i class="fas fa-check mr-2 text-green-400"></i>Puzzles de base</li>
+                        <li><i class="fas fa-check mr-2 text-green-400"></i>Niveaux limités</li>
+                        <li><i class="fas fa-check mr-2 text-green-400"></i>Mode apprentissage</li>
+                    </ul>
+                    <button class="w-full bg-gray-700 text-white py-3 px-4 rounded-lg">
+                        Version Actuelle
+                    </button>
+                </div>
+
+                <!-- Premium -->
+                <div class="bg-yellow-900 bg-opacity-50 p-6 rounded-xl border-2 border-yellow-600 relative">
+                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-yellow-600 text-yellow-200 px-4 py-1 rounded-full text-sm font-bold">
+                            Populaire
+                        </span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-yellow-200 mb-4">Premium</h3>
+                    <p class="text-4xl font-bold text-yellow-200 mb-6">9,99€<span class="text-lg">/mois</span></p>
+                    <ul class="text-yellow-100 text-left mb-6 space-y-2">
+                        <li><i class="fas fa-check mr-2 text-green-400"></i>Scan de hiéroglyphes</li>
+                        <li><i class="fas fa-check mr-2 text-green-400"></i>Niveaux illimités</li>
+                        <li><i class="fas fa-check mr-2 text-green-400"></i>Mode hors ligne</li>
+                        <li><i class="fas fa-check mr-2 text-green-400"></i>Traduction temps réel</li>
+                    </ul>
+                    <button class="w-full bg-yellow-600 hover:bg-yellow-500 text-yellow-900 py-3 px-4 rounded-lg font-bold">
+                        <i class="fas fa-crown mr-2"></i>Devenir Premium
+                    </button>
+                </div>
+
+                <!-- Pro -->
+                <div class="bg-purple-900 bg-opacity-50 p-6 rounded-xl border border-purple-600">
+                    <h3 class="text-2xl font-bold text-purple-200 mb-4">Pro</h3>
+                    <p class="text-4xl font-bold text-purple-200 mb-6">19,99€<span class="text-lg">/mois</span></p>
+                    <ul class="text-purple-100 text-left mb-6 space-y-2">
+                        <li><i class="fas fa-check mr-2 text-green-400"></i>Toutes les fonctionnalités Premium</li>
+                        <li><i class="fas fa-check mr-2 text-green-400"></i>Accès API</li>
+                        <li><i class="fas fa-check mr-2 text-green-400"></i>Support prioritaire</li>
+                        <li><i class="fas fa-check mr-2 text-green-400"></i>Modèles personnalisés</li>
+                    </ul>
+                    <button class="w-full bg-purple-600 hover:bg-purple-500 text-white py-3 px-4 rounded-lg font-bold">
+                        <i class="fas fa-star mr-2"></i>Choisir Pro
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12 px-4 mt-20">
+        <div class="container mx-auto">
+            <div class="text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <span class="hieroglyph text-3xl mr-2 text-yellow-400">𓂓</span>
+                    <span class="text-2xl font-bold text-yellow-300">KA Quest</span>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    L'application mobile ultime pour apprendre les hiéroglyphes avec la méthode KA
+                </p>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <button class="bg-yellow-800 hover:bg-yellow-700 text-yellow-200 py-2 px-4 rounded-lg">
+                        <i class="fab fa-apple mr-2"></i>App Store
+                    </button>
+                    <button class="bg-yellow-800 hover:bg-yellow-700 text-yellow-200 py-2 px-4 rounded-lg">
+                        <i class="fab fa-google-play mr-2"></i>Google Play
+                    </button>
+                    <button class="bg-yellow-800 hover:bg-yellow-700 text-yellow-200 py-2 px-4 rounded-lg">
+                        <i class="fas fa-globe mr-2"></i>Web App
+                    </button>
+                </div>
+                <p class="text-gray-500 text-sm">
+                    © 2025 KA Quest. Tous droits réservés.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language management
+        let currentLang = 'fr';
+
+        function setLanguage(lang) {
+            // Hide all language content
+            document.querySelectorAll('[class^="content-"]').forEach(el => {
+                el.style.display = 'none';
+            });
+
+            // Show selected language content
+            document.querySelectorAll(`.content-${lang}`).forEach(el => {
+                el.style.display = 'block';
+            });
+
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[onclick="setLanguage('${lang}')"]`).classList.add('active');
+
+            currentLang = lang;
+        }
+
+        // Game interactions
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg font-bold z-50 ${
+                type === 'success' ? 'bg-green-600 text-white' :
+                type === 'error' ? 'bg-red-600 text-white' :
+                'bg-blue-600 text-white'
+            }`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Demo game logic
+        document.addEventListener('DOMContentLoaded', function() {
+            // Language initialization
+            setLanguage('fr');
+
+            // Game button interactions
+            const answerButtons = document.querySelectorAll('.bg-yellow-800');
+            answerButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Reset all buttons
+                    answerButtons.forEach(btn => {
+                        btn.classList.remove('bg-green-700', 'bg-red-700');
+                        btn.classList.add('bg-yellow-800');
+                    });
+
+                    // Simulate correct/incorrect feedback
+                    const isCorrect = Math.random() > 0.5;
+                    if (isCorrect) {
+                        this.classList.remove('bg-yellow-800');
+                        this.classList.add('bg-green-700');
+                        setTimeout(() => {
+                            const messages = {
+                                fr: 'Correct ! Bien joué !',
+                                en: 'Correct! Well done!',
+                                es: '¡Correcto! ¡Bien hecho!',
+                                de: 'Richtig! Gut gemacht!'
+                            };
+                            showNotification(messages[currentLang], 'success');
+                        }, 500);
+                    } else {
+                        this.classList.remove('bg-yellow-800');
+                        this.classList.add('bg-red-700');
+                        setTimeout(() => {
+                            const messages = {
+                                fr: 'Incorrect. Essaie encore !',
+                                en: 'Incorrect. Try again!',
+                                es: 'Incorrecto. ¡Inténtalo de nuevo!',
+                                de: 'Falsch. Versuche es nochmal!'
+                            };
+                            showNotification(messages[currentLang], 'error');
+                        }, 500);
+                    }
+                });
+            });
+
+            // Premium button interactions
+            document.querySelectorAll('.bg-yellow-800, .bg-purple-600').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const messages = {
+                        fr: 'Fonctionnalité Premium - Bientôt disponible !',
+                        en: 'Premium Feature - Coming Soon!',
+                        es: 'Función Premium - ¡Próximamente!',
+                        de: 'Premium-Funktion - Bald verfügbar!'
+                    };
+                    showNotification(messages[currentLang], 'info');
+                });
+            });
+
+            // Smooth scrolling
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Hero button interactions
+            document.querySelectorAll('.bg-yellow-800, .bg-transparent').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const messages = {
+                        fr: 'Application mobile bientôt disponible !',
+                        en: 'Mobile app coming soon!',
+                        es: '¡Aplicación móvil próximamente!',
+                        de: 'Mobile App bald verfügbar!'
+                    };
+                    showNotification(messages[currentLang], 'info');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

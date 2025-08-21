@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ka-quest-web-app
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    rootDir: web_app
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+    healthCheckPath: /api/health
+    disk:
+      name: ka-quest-data
+      mountPath: /opt/render/project/src/web_app
+      sizeGB: 1
